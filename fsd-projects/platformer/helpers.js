@@ -363,7 +363,7 @@ function projectileCollision() {
 }
 
 function deathOfPlayer() {
-  ctx.fillStyle = "grey";
+  ctx.fillStyle = "red";
   ctx.fillRect(
     canvas.width / 4,
     canvas.height / 6,
@@ -371,19 +371,19 @@ function deathOfPlayer() {
     canvas.height / 2
   );
   ctx.fillStyle = "black";
-  ctx.font = "800% serif";
+  ctx.font = "700% serif";
   ctx.fillText(
-    "You are dead",
-    canvas.width / 4,
+    "GAME OVER",
+    canvas.width / 3.9,
     canvas.height / 6 + canvas.height / 5,
     (canvas.width / 16) * 14
   );
   ctx.font = "500% serif";
   ctx.fillText(
-    "Hit any key to restart",
-    canvas.width / 4,
-    canvas.height / 6 + canvas.height / 3,
-    (canvas.width / 16) * 14
+    "Hit any key to contine",
+    canvas.width / 4.1,
+    canvas.height / 6 + canvas.height / 1,
+    (canvas.width / 11) * 14
   );
   if (keyPress.any) {
     keyPress.any = false;
@@ -481,7 +481,7 @@ function drawCannons() {
       cannons[i].projectileCountdown = cannons[i].projectileCountdown + 1;
     }
 
-    ctx.fillStyle = "grey";
+    ctx.fillStyle = "red";
     ctx.save(); //save the current translation of the screen.
     ctx.translate(cannons[i].x, cannons[i].y); //you are moving the top left of the screen to the pictures location, this is because you can't rotate the image, you have to rotate the whole page
     ctx.rotate((cannons[i].rotation * Math.PI) / 180); //then you rotate. rotation is centered on 0,0 on the canvas, which is why we moved the picture to 0,0 with translate(x,y)
@@ -552,7 +552,7 @@ function collectablesCollide() {
   }
 }
 
-function createPlatform(x, y, width, height, color = "grey") {
+function createPlatform(x, y, width, height, color = "light green") {
   platforms.push({ x, y, width, height, color });
 }
 
